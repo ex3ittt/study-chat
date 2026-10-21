@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+    <title>Комната</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%238c2346'/%3E%3Cpath d='M4 5h8M4 8h5M4 11h7' stroke='white' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="join" id="join">
+      <form id="join-form">
+        <h1>Комната для группы</h1>
+        <p class="lead">Общий чат без регистрации. Придумай название комнаты, отправь ссылку одногруппникам — и пишите.</p>
+        <label>
+          <span>Как тебя зовут</span>
+          <input id="name" maxlength="32" autocomplete="nickname" required />
+        </label>
+        <label>
+          <span>Комната</span>
+          <input id="room" maxlength="32" placeholder="например, ви14" required pattern="[A-Za-z0-9А-Яа-яЁё\- ]{2,32}" />
+        </label>
+        <button class="primary">Войти</button>
+        <p class="join-error" id="join-error" role="alert"></p>
+      </form>
+    </section>
+
+    <section class="chat" id="chat" hidden>
+      <header class="bar">
+        <div>
+          <h1 id="room-title"></h1>
+          <p class="people" id="people"></p>
+        </div>
+        <button id="copy" class="quiet">Скопировать ссылку</button>
+      </header>
+      <p class="offline" id="offline" hidden role="status"></p>
+      <ol class="script" id="script" aria-live="polite"></ol>
+      <form class="composer" id="composer">
+        <textarea id="text" rows="1" placeholder="Сообщение" aria-label="Сообщение"></textarea>
+        <button class="primary" id="send">Отправить</button>
+      </form>
+    </section>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
